@@ -1,0 +1,14 @@
+{
+  "name": "tencent_map_sdk",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "index.ets",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@ohos/flutter_ohos": "file:./har/flutter.har",
+    "@tencentmap/location_sdk": "1.0.9",
+    "@tencentmap/base": "2.3.3",
+    "@tencentmap/map": "2.3.5"
+  }
+}

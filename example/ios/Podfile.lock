@@ -1,0 +1,44 @@
+PODS:
+  - Flutter (1.0.0)
+  - integration_test (0.0.1):
+    - Flutter
+  - Tencent-MapFoundation (5.2.3)
+  - Tencent-MapSDK (6.6.2):
+    - Tencent-MapFoundation (>= 5.1.0)
+  - Tencent-MapUtils (1.2.4):
+    - Tencent-MapSDK (>= 5.1.0)
+  - tencent_map_sdk (0.0.1):
+    - Flutter
+    - Tencent-MapSDK (= 6.6.2)
+    - Tencent-MapUtils (= 1.2.4)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - tencent_map_sdk (from `.symlinks/plugins/tencent_map_sdk/ios`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Tencent-MapFoundation
+    - Tencent-MapSDK
+    - Tencent-MapUtils
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+  tencent_map_sdk:
+    :path: ".symlinks/plugins/tencent_map_sdk/ios"
+
+SPEC CHECKSUMS:
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
+  Tencent-MapFoundation: 36368d2dd52eb36bda8c4e93e6a6b7b9b99a5cbb
+  Tencent-MapSDK: fb8da2a16bc62fbd18124e253f77f9b0bcee94df
+  Tencent-MapUtils: b1a5c4578465cde2f6790aed720b98ca79eb2c61
+  tencent_map_sdk: a882147922f9671722968eea0387b32534c1d2dd
+
+PODFILE CHECKSUM: 57edf41c2b4dd32f22ce0bf2cf45c7c361a69f93
+
+COCOAPODS: 1.17.0

@@ -1,0 +1,20 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "tencent_map_example"
+    },
+    {
+      "name": "location_reason",
+      "value": "应用需要使用您的地理位置信息用来定位"
+    }
+  ]
+}

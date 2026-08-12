@@ -1,0 +1,96 @@
+group = "com.tencent_map"
+version = "1.0-SNAPSHOT"
+
+buildscript {
+    ext.kotlin_version = "1.7.10"
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("com.android.tools.build:gradle:7.3.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://repo1.maven.org/maven2"
+        }
+        maven {
+            url "https://oss.sonatype.org/content/groups/public"
+        }
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+        maven {
+            url "https://oss.sonatype.org/content/repositories/staging/"
+        }
+        maven {
+            url "https://mirrors.tencent.com/repository/maven/tencent_public/"
+        }
+        maven {
+            url "https://mirrors.tencent.com/repository/maven/tencent_public_snapshots"
+        }
+    }
+}
+
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+
+android {
+    if (project.android.hasProperty("namespace")) {
+        namespace = "com.tencent_map"
+    }
+
+    compileSdk = 34
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+        test.java.srcDirs += "src/test/kotlin"
+    }
+
+    defaultConfig {
+        minSdk = 21
+    }
+
+    dependencies {
+        testImplementation("org.jetbrains.kotlin:kotlin-test")
+        testImplementation("org.mockito:mockito-core:5.0.0")
+
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation 'com.tencent.map.geolocation:TencentLocationSdk-openplatform:7.6.1.4'
+        //最新版本号参考：https://lbs.qq.com/mobile/androidMapSDK/download/3dDownload
+        // 地图
+        implementation 'com.tencent.map:tencent-map-vector-sdk:6.6.5.251229.1c6ab56d.176437250'
+        // 基础库
+        implementation 'com.tencent.openmap:foundation:0.7.0.92a115a'
+        // 地图组件库，包括小车平移、点聚合等组件功能，详见开发指南。
+        implementation 'com.tencent.map:sdk-utilities:1.0.10'
+    }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+
+            testLogging {
+               events "passed", "skipped", "failed", "standardOut", "standardError"
+               outputs.upToDateWhen {false}
+               showStandardStreams = true
+            }
+        }
+    }
+}
