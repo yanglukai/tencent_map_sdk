@@ -51,20 +51,22 @@ class _TencentMapViewState extends State<TencentMapView>
           widget.onViewCreated.call(controller);
         },
       );
-    } else if (defaultTargetPlatform == TargetPlatform.ohos) {
-      return OhosView(
-        viewType: "eplbks.tencent_map_view",
-        creationParams: const <String, dynamic>{},
-        creationParamsCodec: const StandardMessageCodec(),
-        onPlatformViewCreated: (viewId) {
-          final controller = TencentMapController.initChannel(viewId);
-          controller._setMapViewOnReadyComplete(callback: () {
-            controller.updateMapConfig(widget.mapConfig ?? TmConfig._default());
-            widget.onViewCreated.call(controller);
-          });
-        },
-      );
-    } else {
+    }
+    // else if (defaultTargetPlatform == TargetPlatform.ohos) {
+    //   return OhosView(
+    //     viewType: "eplbks.tencent_map_view",
+    //     creationParams: const <String, dynamic>{},
+    //     creationParamsCodec: const StandardMessageCodec(),
+    //     onPlatformViewCreated: (viewId) {
+    //       final controller = TencentMapController.initChannel(viewId);
+    //       controller._setMapViewOnReadyComplete(callback: () {
+    //         controller.updateMapConfig(widget.mapConfig ?? TmConfig._default());
+    //         widget.onViewCreated.call(controller);
+    //       });
+    //     },
+    //   );
+    // }
+    else {
       return Text("$defaultTargetPlatform is not supported");
     }
   }
